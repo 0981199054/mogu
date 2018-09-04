@@ -1,0 +1,19 @@
+/* pages/reg/reg.wxss */
+
+.top {
+  margin-top: 30%;
+}
+
+.input {
+  width: 80%;
+  padding: 20rpx 0;
+  margin: auto;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.btn {
+  margin: 30rpx auto;
+  width: 80%;
+  background: #ff496c;
+  color: #fff;
+}

@@ -1,0 +1,82 @@
+/* pages/my/my.wxss */
+
+/* 背景灰条 */
+
+.bg {
+  background: #f6f6f6;
+  height: 30rpx;
+}
+
+.img {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my_box {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 30rpx;
+}
+
+.img_small {
+  width: 18rpx;
+  height: 34.5rpx;
+  margin-right: 30rpx;
+}
+
+.my_text {
+  margin-left: 30rpx;
+}
+
+.my {
+  height: 100rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.btn {
+  width: 80%;
+  color: #fff;
+  background-color: #ff5777;
+  
+}
+.bg_btn{
+  background: #f6f6f6;
+  height: 140rpx;
+  display: flex;
+  align-items: center;
+}
+.img_big{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+.title_flex{
+  display: flex;
+  padding-left: 40rpx;
+  height: 240rpx;
+  align-items: center;
+}
+.title_name{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+.small_text{
+  font-size: 30rpx;
+  margin: 10rpx 40rpx 0 0;
+  color: #b5b5b5;
+}
+.img_ss{
+  width: 12rpx;
+  height: 23rpx;
+}
+.nolog_btn{
+  margin-top: 48%
+}

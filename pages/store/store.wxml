@@ -1,0 +1,92 @@
+<!--pages/store/store.wxml-->
+<view>
+  <!-- 搜索框 -->
+  <view class='title_bg title'>
+    <image src='../../img/scan.png' class="title_img" bindtap='phone' />
+    <view class='title_input title'>
+      <image src='../../img/search.png' class="title_img_small" />
+      <input class='title_input_val' placeholder='搜索本店商品' placeholder-class='placeholder' value="{{inputVal}}" bindconfirm='seek'></input>
+      <image src='../../img/camera.png' class="title_img_small" />
+    </view>
+    <image src='../../img/code.png' class="title_img" bindtap='phone' />
+  </view>
+  <view>
+    <view class='flex bg '>
+      <image src="{{img+'bp1.jpg'}}" class='store_img' />
+      <view class='store_name'>
+        <text class='store_color'>{{list.store_name}}</text>
+        <view>
+          <image wx:key="{{index}}" wx:for="1234" src="{{img+'pingfen.png'}}" class='store_img_small' />
+        </view>
+        <view>
+          <text class='store_text store_color '>销量：{{list.sales}}</text>
+          <text class="store_padding store_text store_color">|</text>
+          <text class='store_text store_color '>收藏数：{{list.stock}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='flex page_title'>
+    <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="{{index}}" bindtap="navbarTap">{{item}}</text>
+  </view>
+  <view hidden="{{currentTab!==0}}">
+    <image wx:key="{{index}}" wx:for="1234" src="{{img+'store_bg'+item+'.jpg'}}" class='store_show' mode='widthFix' />
+  </view>
+  <view hidden="{{currentTab!==1}}">
+    <!-- 商品部分 -->
+    <view class='shop'>
+      <view wx:for="{{listData}}" wx:key="{{index}}" class='shop_box' data-item='{{item}}' bindtap="shop_click">
+        <view class='shop_renative'>
+          <image src='{{img+item.commodity_img[0]}}' class='shop_img' />
+          <image src='{{img+"cx.png"}}' class='shop_img_small' />
+        </view>
+        <text class='shop_text'>{{item.commodity_name}}</text>
+        <view class='shop_flex'>
+          <text class='shop_text'>{{item.promotion}}</text>
+          <view class='shop_flex'>
+            <text class='shop_text'>{{item.sales}} </text>
+            <image src='{{img+"xx.png"}}' class="title_img_small" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view hidden="{{currentTab!==2}}">
+    <!-- 商品部分 -->
+    <view class='shop'>
+      <view wx:for="{{ranlist}}" wx:key="{{index}}" class='shop_box' data-item='{{item}}' bindtap="shop_click">
+        <view class='shop_renative'>
+          <image src='{{img+item.commodity_img[0]}}' class='shop_img' />
+          <image src='{{img+"cx.png"}}' class='shop_img_small' />
+        </view>
+        <text class='shop_text'>{{item.commodity_name}}</text>
+        <view class='shop_flex'>
+          <text class='shop_text'>{{item.promotion}}</text>
+          <view class='shop_flex'>
+            <text class='shop_text'>{{item.sales}} </text>
+            <image src='{{img+"xx.png"}}' class="title_img_small" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view hidden="{{currentTab!==3}}">
+    <!-- 商品部分 -->
+    <view class='shop'>
+      <view wx:for="{{randata}}" wx:key="{{index}}" class='shop_box' data-item='{{item}}' bindtap="shop_click">
+        <view class='shop_renative'>
+          <image src='{{img+item.commodity_img[0]}}' class='shop_img' />
+          <image src='{{img+"cx.png"}}' class='shop_img_small' />
+        </view>
+        <text class='shop_text'>{{item.commodity_name}}</text>
+        <view class='shop_flex'>
+          <text class='shop_text'>{{item.promotion}}</text>
+          <view class='shop_flex'>
+            <text class='shop_text'>{{item.sales}} </text>
+            <image src='{{img+"xx.png"}}' class="title_img_small" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

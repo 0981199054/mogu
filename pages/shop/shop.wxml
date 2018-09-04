@@ -1,0 +1,98 @@
+<!--pages/shop/shop.wxml-->
+<view class='bg'>
+  <view wx:if="{{!isDel}}" class='manage' bindtap='manage'>管理</view>
+  <view wx:else class='manage' bindtap='manage'>完成</view>
+  <view class='height_small'></view>
+  <view wx:for="{{list}}" wx:key="{{index}}" class='flex bg_box'>
+    <view>
+      <icon wx:if="{{item.selected}}" type='success' color="#ff5777" size="20" data-item="{{item}}" bindtap='select' />
+      <icon wx:else type="circle"  size="20" color="#ff5777" data-item="{{item}}" bindtap='select' />
+    </view>
+    <image class='size_img' src="{{img+item.commodity_img[0]}}" mode='widthFix' />
+    <view class='shop_box'>
+      <text class="shop_text">{{item.commodity_name}}</text>
+      <view>
+        <text class='style'>规格：{{item.styleText}}</text>
+        <text class='style' wx:if="{{item.sizeText!=''}}">尺寸：{{item.sizeText}}</text >
+      </view>
+      <view class='money'>
+      <view>
+        <text class='promotion'>{{item.promotion}}</text>
+        <text class='price'>{{item.price}}</text>
+      </view>
+      <text class='promotion'>X{{item.num}}</text>
+    </view>
+  </view>
+  <view>
+    <text class='compile' data-item="{{item}}" bindtap='editor'>编辑</text>
+  </view>
+</view>
+
+<view class='height'></view>
+<view class='footer'>
+  <icon wx:if="{{isSelected}}" color="#ff5777" type='success' bindtap='all' size="20" />
+  <icon wx:else type="circle"  color="#ff5777" size="20" bindtap='all'  />
+  <text class='all'  bindtap='all'>全选({{isnum}})</text>
+  <text class='all money_color'>￥{{money}}</text>
+  <text wx:if="{{!isDel}}" class='clearing' bindtap='dispose'>结算</text>
+  <text wx:else class='clearing' bindtap='dispose'>删除</text>
+</view>
+
+
+<!-------------------------------------- 弹出框 --------------------------------------->
+<view class="serve_bg" bindtap="hideSize" wx:if="{{isSize}}"></view>
+<view animation="{{sizeData}}" class="serve_box size_box" wx:if="{{isSize}}">
+  <view class='size_title'>
+    <image src="{{img+shopdata.commodity_img[0]}}" class="pop_size_img" />
+    <view class='size_colum'>
+      <text class='size_promotion'>{{shopdata.promotion}}</text>
+      <text class='size_stock'>库存：{{shopdata.stock}}</text>
+      <text class='size_stock'>已选择：{{styleText+" "+sizeText}}</text>
+    </view>
+    <image src="{{img+'close.png'}}" class='serve_img close' bindtap="hideSize" />
+  </view>
+  <!-- 规格尺寸选择 -->
+  <view class='style_top'>
+    <view class='style'>
+      <text class='style_text'>规格</text>
+      <view class='pop_flex'>
+        <view wx:key="{{index}}" wx:for="{{shopdata.specification.style}}">
+          <view id="{{index}}" bindtap='chose_style' data-value='{{item}}' data-index="{{index}}">
+            <text wx:if="{{index == clickStyle}}" class='style_box style_chose'>{{item}}</text>
+            <text wx:else class='style_box '>{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='style' wx:if="{{shopdata.specification.size}}">
+      <text class='style_text'>尺寸</text>
+      <view class='pop_flex'>
+        <view wx:key="{{index}}" wx:for="{{shopdata.specification.size}}">
+          <view id="{{index}}" bindtap='chose_size' data-value='{{item}}' data-index="{{index}}">
+            <text wx:if="{{index == clickSize}}" class='style_box style_chose'>{{item}}</text>
+            <text wx:else class='style_box '>{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 数量 -->
+  <view>
+    <view class='style'>
+      <text class='style_text'>规格</text>
+      <view class='pop_flex num_box'>
+        <text wx:if="{{num>1}}" class='num_btn_left  num_chouse' bindtap="decNum">-</text>
+        <text wx:else class='num_btn_left' bindtap="decNum">-</text>
+        <text class='num_text'>{{num}}</text>
+        <text class='num_btn_right num_chouse' bindtap="addNum">+</text>
+      </view>
+    </view>
+  </view>
+  <view class='pop_flex num_box'>
+    <text class='shop_char'  bindtap='alter'>修改</text>
+    <text class='shop_buy' bindtap='cancel'>取消</text>
+  </view>
+</view>
+
+
+</view>

@@ -1,0 +1,200 @@
+<!--pages/details/details.wxml-->
+<view>
+  <!-- 图片详情 -->
+  <scroll-view scroll-x class='swiper'>
+    <view class='swiper_box' wx:for="{{list.commodity_img}}" wx:key="{{index}}">
+      <image src="{{img+item}}" class="details_img"  />
+    </view>
+  </scroll-view>
+  <view>
+    <text class='com_name'>{{list.commodity_name}}</text>
+  </view>
+  <view class='flex'>
+    <view class='promotion'>
+      <text>{{list.promotion}}</text>
+    </view>
+    <view>
+      <view>
+        <text class='price'>{{list.price}}</text>
+      </view>
+      <view class='promotion_box'>
+        <text class='promotion_text'>限量促销</text>
+      </view>
+    </view>
+  </view>
+  <view class='flex'>
+    <text class='city'>免邮费</text>
+    <text class='city'>{{list.city}}</text>
+  </view>
+  <!-- 服务说明 -->
+  <view class='flex serve_center' bindtap="showServe">
+    <image src='{{img+"serve.png"}}' class='img_small' />
+    <text class='serve'>72小时发货</text>
+    <image src='{{img+"serve.png"}}' class='img_small' />
+    <text class='serve'>7天无理由退货</text>
+    <image src='{{img+"serve.png"}}' class='img_small' />
+    <text class='serve'>退货补运费  ></text>
+  </view>
+  <view class="serve_bg" bindtap="hideServe" wx:if="{{isServe}}"></view>
+  <view animation="{{serveData}}" class="serve_box" wx:if="{{isServe}}">
+    <view class='serve_text_box'>
+      <text class='serve_text'>服务说明</text>
+      <image src="{{img+'close.png'}}" class='serve_img close' bindtap="hideServe" />
+    </view>
+    <view>
+      <view class='flex serve_mediate'>
+        <image src='{{img+"serve.png"}}' class='img_small' />
+        <text class='serve black'>72小时发货</text>
+      </view>
+      <view class='serve_column'>
+        <view class='flex serve_mediate'>
+          <image src='{{img+"serve.png"}}' class='img_small ' />
+          <text class='serve serve_width black'>7天无理由退货</text>
+        </view>
+        <text class='serve serve_width more'>物流签收后7天内卖家可无理由退货，需满足退货条件</text>
+      </view>
+      <view class='flex serve_mediate '>
+        <image src='{{img+"serve.png"}}' class='img_small' />
+        <text class='serve black'>退货补运费</text>
+      </view>
+      <view class='flex serve_mediate '>
+        <image src='{{img+"serve.png"}}' class='img_small' />
+        <text class='serve black'>全国包邮</text>
+      </view>
+    </view>
+  </view>
+  <!-- 服务说明结束 -->
+  <view class='bg'></view>
+  <!-- 规格选择 -->
+  <view class='size_flex ' bindtap="showSize">
+    <view>
+      <text class='size_text'>请选择：</text>
+      <text class='size_chose style_chose '>{{styleText+" "+sizeText}}</text>
+    </view>
+    <text class='size_text arrow'>></text>
+  </view>
+  <view class="serve_bg" bindtap="hideSize" wx:if="{{isSize}}"></view>
+  <view animation="{{sizeData}}" class="serve_box size_box" wx:if="{{isSize}}">
+    <view class='size_title'>
+      <image src="{{img+list.commodity_img[0]}}" class="size_img" />
+      <view class='size_colum'>
+        <text class='size_promotion'>{{list.promotion}}</text>
+        <text class='size_stock'>库存：{{list.stock}}</text>
+        <text class='size_stock'>已选择：{{styleText+" "+sizeText}}</text>
+      </view>
+      <image src="{{img+'close.png'}}" class='serve_img close' bindtap="hideSize" />
+    </view>
+    <!-- 规格尺寸选择 -->
+    <view class='style_top'>
+      <view class='style'>
+        <text class='style_text'>规格</text>
+        <view class='flex'>
+          <view wx:key="{{index}}" wx:for="{{list.specification.style}}">
+            <view id="{{index}}" bindtap='chose_style' data-value='{{item}}' data-index="{{index}}" >
+              <text wx:if="{{index == clickStyle}}" class='style_box style_chose'>{{item}}</text>
+              <text wx:else class='style_box '>{{item}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='style' wx:if="{{list.specification.size}}">
+        <text class='style_text'>尺寸</text>
+        <view class='flex'>
+          <view wx:key="{{index}}" wx:for="{{list.specification.size}}">
+            <view id="{{index}}" bindtap='chose_size' data-value='{{item}}' data-index="{{index}}">
+              <text wx:if="{{index == clickSize}}" class='style_box style_chose'>{{item}}</text>
+              <text wx:else class='style_box '>{{item}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 数量 -->
+    <view>
+      <view class='style'>
+        <text class='style_text'>规格</text>
+        <view class='flex num_box'>
+          <text wx:if="{{num>1}}" class='num_btn_left  num_chouse' bindtap="decNum">-</text>
+          <text wx:else class='num_btn_left' bindtap="decNum">-</text>
+          <text class='num_text'>{{num}}</text>
+          <text class='num_btn_right num_chouse' bindtap="addNum">+</text>
+        </view>
+      </view>
+    </view>
+    <view class='flex shop_box '>
+      <text class='shop_char' bindtap='cart'>加入购物车</text>
+      <text class='shop_buy' bindtap='buy'>立即购买</text>
+    </view>
+  </view>
+  <view class='bg'></view>
+  <!------------------------------------------ 店铺名称 ------------------------------------------------------------>
+  <view>
+    <view class='flex store'>
+      <image src="{{img+'bp1.jpg'}}" class='store_img' />
+      <view class='serve_column'>
+        <text>{{list.store_name}}</text>
+        <view>
+          <image wx:key="{{index}}" wx:for="1234" src="{{img+'pingfen.png'}}" class='store_img_small' />
+        </view>
+      </view>
+      <text class='go_store' bindtap='goShop'>进店></text>
+    </view>
+    <view class='flex shop_box'>
+      <view class='serve_column store_flex stroe_border'>
+        <text>{{list.sales}}</text>
+        <text class='store_bottom'>本月销量</text>
+      </view>
+      <view class='serve_column store_flex stroe_border'>
+        <text>{{list.stock}}</text>
+        <text class='store_bottom'>收藏数</text>
+      </view>
+      <view class='serve_column store_flex'>
+        <view>
+          <text class='store_bottom'>描述相符</text>
+          <text class='store_bottom num_chouse'>4.78</text>
+        </view>
+        <view>
+          <text class='store_bottom'>质量满意</text>
+          <text class='store_bottom num_chouse'>4.9</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='bg'></view>
+  <!--------------------------------------- 详情 ----------------------------->
+  <view class='flex'>
+    <text class='store_flex details_text fitst'>图文详情</text>
+    <text class='store_flex details_text'>参数商品</text>
+    <text class='store_flex details_text'>热卖推荐</text>
+  </view>
+  <view >
+    <text class='details_img_text'>{{list.details.contentarr}}</text>
+    <image wx:key="{{index}}" wx:for="{{list.details.imgarr}}" src="{{img+item}}" class='details_img_box' mode='widthFix' />
+  </view>
+
+
+  <!-- 撑高度 -->
+  <view class='height'>
+  </view>
+
+
+
+
+  <!-- 购物栏 -->
+  <view class='footer'>
+    <view class='footer_box'>
+      <image src='{{img+"favor.png"}}' class='img_small' />
+      <text class='footer_text'>收藏</text>
+    </view>
+    <view class='footer_box' bindtap='goShop'>
+      <image src='{{img+"shop.png"}}' class='img_small' />
+      <text class='footer_text'>小店</text>
+    </view>
+    <view class='footer_btn chap'  bindtap='showSize'>
+      <text>加入购物车</text>
+    </view>
+    <view class='footer_btn buy' bindtap='buy'>
+      <text>立即购买</text>
+    </view>
+  </view>
+</view>

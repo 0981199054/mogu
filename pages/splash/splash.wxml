@@ -1,0 +1,2 @@
+<!--pages/splash/splash.wxml-->
+<image src='../../img/splash.png' class='bg-image' />

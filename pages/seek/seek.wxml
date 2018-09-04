@@ -1,0 +1,30 @@
+<!--pages/seek/seek.wxml-->
+<view>
+  <!-- 搜索框 -->
+  <view class='title_bg title'>
+    <image src='../../img/scan.png' class="title_img" bindtap='phone' />
+    <view class='title_input title'>
+      <image src='../../img/search.png' class="title_img_small" />
+      <input class='title_input_val' placeholder='搜索商品' placeholder-class='placeholder' bindconfirm='seek'></input>
+      <image src='../../img/camera.png' class="title_img_small" />
+    </view>
+    <image src='../../img/code.png' class="title_img" bindtap='phone' />
+  </view>
+  <!-- 商品列表 -->
+  <view class='shop'>
+    <view wx:for="{{list}}" wx:key="{{index}}" class='shop_box' data-item='{{item}}' bindtap="shop_click">
+      <view class='shop_renative'>
+        <image src='{{img+item.commodity_img[0]}}' class='shop_img' />
+        <image src='{{img+"cx.png"}}' class='shop_img_small' />
+      </view>
+      <text class='shop_text'>{{item.commodity_name}}</text>
+      <view class='shop_flex'>
+        <text class='shop_text'>{{item.promotion}}</text>
+        <view class='shop_flex'>
+          <text class='shop_text'>{{item.sales}} </text>
+          <image src='{{img+"xx.png"}}' class="title_img_small" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

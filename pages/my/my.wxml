@@ -1,0 +1,110 @@
+<!--pages/my/my.wxml-->
+<view>
+  <view wx:if='{{isReg}}'>
+    <view class="title_flex">
+      <image src='{{img+"bp1.jpg"}}' class='img_big' />
+      <view class='title_name'>
+        <text>{{name}}</text>
+        <view>
+          <text class='small_text'>收货地址</text>
+          <image src="{{img+'my_arr.png'}}" class='img_ss' />
+        </view>
+
+      </view>
+
+    </view>
+    <view class='bg'></view>
+
+    <view class='flex my'>
+      <view class='my_box'>
+        <image src="{{img+'my1.png'}}" class='img' />
+        <text class='my_text'>我的订单</text>
+      </view>
+      <image src="{{img+'my_arr.png'}}" class='img_small' />
+    </view>
+    <view class='bg'></view>
+
+    <view class='flex my'>
+      <view class='my_box'>
+        <image src="{{img+'my2.png'}}" class='img' />
+        <text class='my_text'>我的购物车</text>
+      </view>
+      <image src="{{img+'my_arr.png'}}" class='img_small' />
+    </view>
+
+
+    <view class='flex my'>
+      <view class='my_box'>
+        <image src="{{img+'my3.png'}}" class='img' />
+        <text class='my_text'>我的拼团</text>
+      </view>
+      <image src="{{img+'my_arr.png'}}" class='img_small' />
+    </view>
+
+    <view class='flex my'>
+      <view class='my_box'>
+        <image src="{{img+'my4.png'}}" class='img' />
+        <text class='my_text'>我的钱包</text>
+      </view>
+      <image src="{{img+'my_arr.png'}}" class='img_small' />
+    </view>
+
+    <view class='flex my'>
+      <view class='my_box'>
+        <image src="{{img+'my5.png'}}" class='img' />
+        <text class='my_text'>我的优惠券</text>
+      </view>
+      <image src="{{img+'my_arr.png'}}" class='img_small' />
+    </view>
+
+    <view class='flex my'>
+      <view class='my_box'>
+        <image src="{{img+'my6.png'}}" class='img' />
+        <text class='my_text'>我收藏的商品</text>
+      </view>
+      <image src="{{img+'my_arr.png'}}" class='img_small' />
+    </view>
+
+    <view class='flex my'>
+      <view class='my_box'>
+        <image src="{{img+'my7.png'}}" class='img' />
+        <text class='my_text'>我的收藏的店铺</text>
+      </view>
+      <image src="{{img+'my_arr.png'}}" class='img_small' />
+    </view>
+    <view class='bg'></view>
+    <view class='flex my'>
+      <view class='my_box'>
+        <image src="{{img+'my8.png'}}" class='img' />
+        <text class='my_text'>消息通知</text>
+      </view>
+      <image src="{{img+'my_arr.png'}}" class='img_small' />
+    </view>
+
+    <view class='flex my'>
+      <view class='my_box'>
+        <image src="{{img+'my9.png'}}" class='img' />
+        <text class='my_text'>客服</text>
+      </view>
+      <image src="{{img+'my_arr.png'}}" class='img_small' />
+    </view>
+
+    <view class='flex my'>
+      <view class='my_box'>
+        <image src="{{img+'my10.png'}}" class='img' />
+        <text class='my_text'>意见反馈</text>
+      </view>
+      <image src="{{img+'my_arr.png'}}" class='img_small' />
+    </view>
+
+    <view class='bg_btn'>
+      <button class='btn' bindtap='exitReg'>退出登录</button>
+    </view>
+
+  </view>
+  <view wx:else>
+    <button class='nolog_btn btn' bindtap='reg'>登录</button>
+  </view>
+
+
+</view>

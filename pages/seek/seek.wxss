@@ -1,0 +1,94 @@
+/* pages/seek/seek.wxss */
+
+/* -------------------搜索框----------------------- */
+
+.title_bg {
+  background: #ff5777;
+  height: 80rpx;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.title_img {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.title_input {
+  width: 70%;
+  padding: 10rpx;
+  background-color: #e84477;
+  border-radius: 20rpx;
+}
+
+.title_input_val {
+  color: #fff;
+  font-size: 24rpx;
+  caret-color: #fff;
+}
+
+.title_img_small {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.placeholder {
+  color: #fff;
+}
+/* -----------------------------------商品部分---------------------------------------- */
+
+.shop {
+  display: flex;
+  flex-wrap: wrap;
+  background: #f6f6f6;
+}
+
+.shop_box {
+  width: 48%;
+  display: block;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
+
+.shop_flex {
+  display: flex;
+  justify-content: space-between;
+  height: 60rpx;
+  padding: 0 10rpx;
+}
+
+.shop_img {
+  width: 100%;
+  border-radius: 10rpx;
+}
+
+.shop_text {
+  padding: 0 10rpx;
+  height: 88rpx;
+  font-size: 30rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.shop_img_small {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  bottom: 30rpx;
+  right: 10rpx;
+}
+
+.shop_renative {
+  position: relative;
+}
+

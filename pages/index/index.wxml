@@ -1,0 +1,86 @@
+<!--index.wxml-->
+<view>
+  <!-- 搜索框 -->
+  <view class='title_bg title'>
+    <image src='../../img/scan.png' class="title_img" bindtap='phone' />
+    <view class='title_input title'>
+      <image src='../../img/search.png' class="title_img_small" />
+      <input class='title_input_val' placeholder='搜索宝贝、商品' placeholder-class='placeholder' value='{{inputVal}}' bindconfirm='seek'></input>
+      <image src='../../img/camera.png' class="title_img_small"  bindtap='phone'/>
+    </view>
+    <image src='../../img/code.png' class="title_img"  />
+  </view>
+  <!-- 轮播图 -->
+  <swiper class="swiper" indicator-active-color="{{indicatorActiveColor}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <view wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{img+item}}" class="slide-image" />
+      </swiper-item>
+    </view>
+  </swiper>
+  <!-- 头部导航 -->
+  <view class='imglist'>
+    <view wx:for="{{imgList}}" wx:key="{{index}}" class='imglist_box'>
+      <image src="{{img+item.img}}" class='imglist_img' />
+      <text class='imglist_text'>{{item.text}}</text>
+    </view>
+  </view>
+  <!-- 今日必拼 -->
+  <view class='spell'>
+    <view class='spell_time_flex'>
+      <image src='{{img+"jrbp.png"}}' class='spell_title' />
+      <text class='spell_time left'>{{h}}</text>
+      <text class='spell_segmentation'>:</text>
+      <text class='spell_time'>{{m}}</text>
+      <text class='spell_segmentation'>:</text>
+      <text class='spell_time'>{{s}}</text>
+    </view>
+    <swiper class='sell_swiper' indicator-active-color="{{indicatorActiveColor}}" indicator-dots="{{indicatorDots}}" duration="{{duration}}">
+      <swiper-item wx:for="{{spell}}" wx:key="{{index}}" class="spell_flex spell">
+        <view wx:for="{{item}}" wx:key="{{index}}" class='spell_box'>
+          <image src="{{img+item.img}}" class='spell_img' />
+          <image src='{{img+"bp_small.png"}}' class="spell_img_small" />
+          <text class='spell_img_text'>{{item.imgText}}</text>
+          <view>
+            <text class='spell_text'>{{item.text}}</text>
+          </view>
+          <text class='spell_text spell_news'>￥{{item.news}}</text>
+          <text class='spell_text spell_old'>￥{{item.old}}</text>
+          <button class='spell_btn'>去拼团</button>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 流行热点 -->
+  <image src='{{img+"gather.jpg"}}' class='gather' />
+  <!-- 精选商品分隔栏 -->
+  <image src='{{img+"jx.PNG"}}' class='choiceness' />
+  <!-- 精选商品 -->
+  <view>
+    <scroll-view scroll-x class='handpick'>
+      <view class='handpick_view' wx:for="{{tabs}}" wx:key="{{index}}">
+        <view id="{{index}}" data-value='{{item.val}}' bindtap="handpick_text">
+          <text wx:if="{{index == clickid}}" class='handpick_text handpick_cleck'>{{item.text}}</text>
+          <text wx:else class='handpick_text'>{{item.text}}</text>
+        </view>
+      </view>
+    </scroll-view>
+    <!-- 商品部分 -->
+    <view class='shop'>
+      <view wx:for="{{list}}" wx:key="{{index}}" class='shop_box' data-item='{{item}}' bindtap="shop_click">
+        <view class='shop_renative'>
+          <image src='{{img+item.commodity_img[0]}}' class='shop_img' />
+          <image src='{{img+"cx.png"}}' class='shop_img_small' />
+        </view>
+        <text class='shop_text'>{{item.commodity_name}}</text>
+        <view class='shop_flex'>
+          <text class='shop_text'>{{item.promotion}}</text>
+          <view class='shop_flex'>
+            <text class='shop_text'>{{item.sales}} </text>
+            <image src='{{img+"xx.png"}}' class="title_img_small" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
