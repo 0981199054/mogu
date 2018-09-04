@@ -22,6 +22,7 @@ Page({
     arr: [],
     money: 0,
     isnum: 0,
+    isReg:false,
   },
   moneyFn() {
     let money = 0
@@ -40,7 +41,8 @@ Page({
   },
   onShow(options) {
     this.setData({
-      text:app.data.text
+      text:app.data.text,
+      isReg: app.data.isReg,
     })
     wx.request({
       url: IP.ip + 'buyShop',
@@ -392,6 +394,10 @@ Page({
         })
       }
     }
-  }
+  }, reg() {
+    wx.navigateTo({
+      url: '../reg/reg'
+    })
+  },
 
 })

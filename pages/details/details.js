@@ -19,8 +19,8 @@ Page({
     sizeText: '',
     num: 1,
     styleIndex: "",
-    sizeIndex: ""
-
+    sizeIndex: "",
+    isReg: false
   },
   onLoad: function(option) {
     wx.request({
@@ -36,6 +36,7 @@ Page({
         console.log(res.data)
         this.setData({
           list: res.data,
+          isReg: app.data.isReg
         })
       }
     })
@@ -175,50 +176,62 @@ Page({
   },
   // 加入购物车
   cart(skip) {
-    if (this.data.styleText !== "") {
-      wx.showToast({
-        title: '加入购物车成功',
-        icon: 'none',
-        duration: 1000,
-        mask: true,
-        images: {}
-      })
-      this.hideSize()
-      let data = this.data.list;
-      delete data._id
-      wx.request({
-        url: IP.ip + 'addShop',
-        data: {
-          ...data,
-          styleText: this.data.styleText,
-          sizeText: this.data.sizeText,
-          num: this.data.num,
-          buyName: app.data.text,
-          selected: false,
-          styleIndex: this.data.styleIndex,
-          sizeIndex: this.data.sizeIndex
-        },
-        method: "POST",
-        header: {
-          'content-type': 'application/json' // 默认值
-        },
-        success: res => {
-          if (skip == "ture") {
-            wx.switchTab({
-              url: '../shop/shop'
-            });
+    if (this.data.isReg) {
+      if (this.data.styleText !== "") {
+        wx.showToast({
+          title: '加入购物车成功',
+          icon: 'none',
+          duration: 1000,
+          mask: true,
+          images: {}
+        })
+        this.hideSize()
+        let data = this.data.list;
+        delete data._id
+        wx.request({
+          url: IP.ip + 'addShop',
+          data: {
+            ...data,
+            styleText: this.data.styleText,
+            sizeText: this.data.sizeText,
+            num: this.data.num,
+            buyName: app.data.text,
+            selected: false,
+            styleIndex: this.data.styleIndex,
+            sizeIndex: this.data.sizeIndex
+          },
+          method: "POST",
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success: res => {
+            if (skip == "ture") {
+              wx.switchTab({
+                url: '../shop/shop'
+              });
+            }
           }
-        }
-      })
+        })
+      } else {
+        wx.showToast({
+          title: '请先选择规格',
+          icon: 'none',
+          duration: 1000,
+          mask: true,
+          images: {}
+        })
+
+      }
     } else {
       wx.showToast({
-        title: '请先选择规格',
+        title: '请先登录',
         icon: 'none',
         duration: 1000,
         mask: true,
         images: {}
       })
-
     }
-  }
+
+  },
+
 })

@@ -44,7 +44,6 @@
   width: 80%;
   color: #fff;
   background-color: #ff5777;
-  
 }
 .bg_btn{
   background: #f6f6f6;
