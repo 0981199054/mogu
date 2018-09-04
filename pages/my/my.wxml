@@ -24,8 +24,8 @@
     </view>
     <view class='bg'></view>
 
-    <view class='flex my'>
-      <view class='my_box'>
+    <view class='flex my' bindtap='buyshop'>
+      <view class='my_box' >
         <image src="{{img+'my2.png'}}" class='img' />
         <text class='my_text'>我的购物车</text>
       </view>

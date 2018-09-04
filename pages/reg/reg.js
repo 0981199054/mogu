@@ -50,6 +50,12 @@ Page({
       }
     })
 
+  },
+  // 前往注册页面
+  golog() {
+    wx.navigateTo({
+      url: '../log/log'
+    })
   }
 
 })

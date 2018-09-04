@@ -9,7 +9,8 @@
     "pages/store/store",
     "pages/seek/seek",
     "pages/log/log",
-    "pages/reg/reg"
+    "pages/reg/reg",
+    "pages/indent/indent"
   ],
   "window": {
     "backgroundTextStyle": "light",

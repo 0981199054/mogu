@@ -22,7 +22,7 @@ Page({
     arr: [],
     money: 0,
     isnum: 0,
-    isReg:false,
+    isReg: false,
   },
   moneyFn() {
     let money = 0
@@ -31,7 +31,7 @@ Page({
       if (item.selected) {
         item.promotion = item.promotion.split("￥")[1] - 0
         money += item.promotion * item.num
-        isnum +=item.num
+        isnum += item.num
       }
     })
     this.setData({
@@ -41,7 +41,7 @@ Page({
   },
   onShow(options) {
     this.setData({
-      text:app.data.text,
+      text: app.data.text,
       isReg: app.data.isReg,
     })
     wx.request({
@@ -280,6 +280,35 @@ Page({
   dispose(e) {
     if (!this.data.isDel) {
       if (this.data.list.some(item => item.selected)) {
+        // 创建订单
+        let arr = this.data.list.filter(item => item.selected)
+        arr = arr.map(item => {
+          return ({
+            name: item.commodity_name,
+            money: "￥" + item.promotion,
+            size: "规格:" + item.styleText + "尺寸" + item.sizeText,
+            yunfei: '包邮',
+            kuaidi: '未指定',
+            isfufei: '已付款',
+            danhao: '',
+            img: item.commodity_img[0],
+            name: app.data.text
+          })
+        })
+        // console.log(arr)
+        wx.request({
+          url: IP.ip + 'order',
+          data: {
+            submitType: "addMore",
+            data: arr
+          },
+          method: "POST",
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success: res => {
+          }
+        })
         wx.showLoading({
           title: '正在进行支付',
           mask: true,
@@ -394,7 +423,8 @@ Page({
         })
       }
     }
-  }, reg() {
+  },
+  reg() {
     wx.navigateTo({
       url: '../reg/reg'
     })

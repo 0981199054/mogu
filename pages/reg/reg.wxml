@@ -4,6 +4,7 @@
     <input class='input' bindinput="getUser" placeholder='账号' />
     <input class='input' type='password' bindinput="getPwd"  placeholder='密码' />
     <button class='btn' bindtap='reg'>登录</button>
+    <text class='log' bindtap='golog'>前往注册</text>
   </view>
 
 </view>

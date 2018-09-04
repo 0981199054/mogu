@@ -32,6 +32,12 @@ Page({
     wx.reLaunch({
       url: '../index/index',
     })
+  },
+  buyshop() {
+    wx.switchTab({
+      url: '../shop/shop'
+    });
+
   }
 
 })

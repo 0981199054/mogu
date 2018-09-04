@@ -1,2 +1,10 @@
 <!--pages/log/log.wxml-->
-<text>pages/log/log.wxml</text>
+<view>
+  <view class='top'>
+    <input class='input' bindinput="getUser" placeholder='账号' />
+    <input class='input' type='password' bindinput="getPwd" placeholder='密码' />
+    <input class='input' bindinput="getNickname" placeholder='昵称' />
+    <input class='input' bindinput="getCity" placeholder='所在城市' />
+    <button class='btn' bindtap='log'>注册</button>
+  </view>
+</view>

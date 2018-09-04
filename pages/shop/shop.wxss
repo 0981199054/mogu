@@ -65,7 +65,11 @@
 
 .compile {
   margin-left: 20rpx;
-  font-size: 34rpx;
+  font-size: 26rpx;
+  padding: 4rpx 10rpx;
+  background: #ff5777;
+  border-radius: 8rpx;
+  color: #fff;
 }
 
 .height {

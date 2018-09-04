@@ -17,3 +17,8 @@
   background: #ff496c;
   color: #fff;
 }
+.log{
+  font-size:30rpx;
+  margin-left: 42%;
+  color: #ccc
+}
