@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    text: app.data.text,
+    text: "",
     list: {},
     shopdata: {},
     img: IP.img,
@@ -22,7 +22,6 @@ Page({
     arr: [],
     money: 0,
     isnum: 0,
-    is
   },
   moneyFn() {
     let money = 0
@@ -40,6 +39,9 @@ Page({
     })
   },
   onShow(options) {
+    this.setData({
+      text:app.data.text
+    })
     wx.request({
       url: IP.ip + 'buyShop',
       data: {
