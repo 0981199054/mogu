@@ -84,7 +84,7 @@
     </view>
   </view>
   <!-- 底框 -->
-  <view class='bottom bottom_top'>
+  <view class='bottom bottom_top' >
     <view class='bottom'>
       <image src='{{img+"mogu.png"}}' class="title_img_small" />
       <text class='bottom_text'>已经到底了</text>

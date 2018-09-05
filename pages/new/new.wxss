@@ -1,1 +1,42 @@
 /* pages/new/new.wxss */
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my {
+  height: 100rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.my_box {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 30rpx;
+}
+
+.img {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.my_text {
+  font-size: 36rpx;
+}
+
+.img_small {
+  width: 18rpx;
+  height: 34.5rpx;
+}
+.text_box{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10rpx;
+}
+.my_text_small {
+  font-size: 30rpx;
+  color: #ccc;
+}

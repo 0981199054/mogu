@@ -1,7 +1,12 @@
 <!--pages/new/new.wxml-->
 <view>
-  <text>消息推送</text>
-  <view>
-    
+  <view class='flex my'  bindtap='order'>
+    <view class='my_box' >
+      <image src="{{img+'mogu.png'}}" class='img' />
+      <view class='text_box'>
+        <text class='my_text'>蘑菇街官方</text>
+        <text class='my_text_small'>亲爱的{{name}},你好啊~~</text>
+      </view>
+    </view>
   </view>
 </view>

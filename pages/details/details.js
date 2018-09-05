@@ -21,7 +21,8 @@ Page({
     styleIndex: "",
     sizeIndex: "",
     isReg: false,
-    collect:true
+    collect: true,
+    buyName: ""
   },
   onLoad: function(option) {
     wx.request({
@@ -34,10 +35,11 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: res => {
-        console.log(res.data)
+        // console.log(res.data)
         this.setData({
           list: res.data,
-          isReg: app.data.isReg
+          isReg: app.data.isReg,
+          buyName: app.data.text,
         })
       }
     })
@@ -130,7 +132,6 @@ Page({
   },
   // -------------------------------------规格选择------------------------------//
   chose_style(e) {
-    console.log(e.currentTarget)
     this.setData({
       clickStyle: e.currentTarget.id,
       styleText: e.currentTarget.dataset.value,
@@ -138,7 +139,6 @@ Page({
     })
   },
   chose_size(e) {
-    console.log(e.currentTarget)
     this.setData({
       clickSize: e.currentTarget.id,
       sizeText: e.currentTarget.dataset.value,
@@ -189,27 +189,66 @@ Page({
         this.hideSize()
         let data = this.data.list;
         delete data._id
+        // console.log(this.data.list)
+        // 查询是否有重复
         wx.request({
-          url: IP.ip + 'addShop',
+          url: IP.ip + 'buyShop',
           data: {
-            ...data,
-            styleText: this.data.styleText,
-            sizeText: this.data.sizeText,
-            num: this.data.num,
-            buyName: app.data.text,
-            selected: false,
-            styleIndex: this.data.styleIndex,
-            sizeIndex: this.data.sizeIndex
+            commodity_name: this.data.list.commodity_name,
+            buyName: this.data.buyName
           },
           method: "POST",
           header: {
             'content-type': 'application/json' // 默认值
           },
           success: res => {
-            if (skip == "ture") {
-              wx.switchTab({
-                url: '../shop/shop'
-              });
+            console.log(res.data[0])
+            if (res.data.length > 0) {
+              console.log("length>0")
+              wx.request({
+                url: IP.ip + 'shopUpdata',
+                data: {
+                  _id: res.data[0]._id,
+                  num: res.data[0].num + this.data.num
+                },
+                method: "POST",
+                header: {
+                  'content-type': 'application/json' // 默认值
+                },
+                success: res => {
+                  if (skip === "ture") {
+                    wx.switchTab({
+                      url: '../shop/shop'
+                    });
+                  }
+                }
+              })
+            } else {
+              wx.request({
+                url: IP.ip + 'addShop',
+                data: {
+                  ...data,
+                  styleText: this.data.styleText,
+                  sizeText: this.data.sizeText,
+                  num: this.data.num,
+                  buyName: app.data.text,
+                  selected: false,
+                  styleIndex: this.data.styleIndex,
+                  sizeIndex: this.data.sizeIndex
+                },
+                method: "POST",
+                header: {
+                  'content-type': 'application/json' // 默认值
+                },
+                success: res => {
+                  console.log('asdasdasd')
+                  if (skip == "ture") {
+                    wx.switchTab({
+                      url: '../shop/shop'
+                    });
+                  }
+                }
+              })
             }
           }
         })
@@ -221,7 +260,6 @@ Page({
           mask: true,
           images: {}
         })
-
       }
     } else {
       wx.showToast({
@@ -238,6 +276,5 @@ Page({
     this.setData({
       collect: !this.data.collect
     })
-  }
-
+  },
 })

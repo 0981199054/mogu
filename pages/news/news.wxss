@@ -1,0 +1,19 @@
+/* pages/news/news.wxss */
+
+.view {
+  background: #f6f6f6;
+  overflow: hidden;
+}
+
+.text {
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+}
+
+.text_box {
+  width: 86%;
+  margin: 40rpx auto;
+  border-radius: 20rpx;
+  background: #fff;
+}

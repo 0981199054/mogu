@@ -2,8 +2,8 @@
 App({
   data: {
     text: "",
-    isReg:false,
-    img:""
-  }
- 
+    isReg: false,
+    img: ""
+  },
+
 })

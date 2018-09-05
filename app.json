@@ -10,13 +10,16 @@
     "pages/seek/seek",
     "pages/log/log",
     "pages/reg/reg",
-    "pages/indent/indent"
+    "pages/indent/indent",
+    "pages/news/news"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ff5777",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "#fff",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#ff5777"
   },
   "tabBar": {
     "list": [

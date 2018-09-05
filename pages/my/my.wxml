@@ -69,7 +69,7 @@
     <view class='flex my'>
       <view class='my_box'>
         <image src="{{img+'my7.png'}}" class='img' />
-        <text class='my_text'>我的收藏的店铺</text>
+        <text class='my_text'>我收藏的店铺</text>
       </view>
       <image src="{{img+'my_arr.png'}}" class='img_small' />
     </view>
