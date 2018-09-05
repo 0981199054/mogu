@@ -1,2 +1,63 @@
 <!--pages/indent/indent.wxml-->
-<text>pages/indent/indent.wxml</text>
+<view>
+  <view class='shop_flex page_title'>
+    <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="{{index}}" bindtap="navbarTap">{{item}}</text>
+  </view>
+  <!-- 全部 -->
+  <view hidden="{{currentTab!==0}}">
+    <view wx:for="{{list}}" wx:key="{{index}}" class='flex bg_box'>
+      <image class='size_img' src="{{img+item.img}}" mode='widthFix' />
+      <view class='shop_box'>
+        <text class="shop_text">{{item.name}}</text>
+        <text class='style'>{{item.size}}</text>
+        <view class='money'>
+          <view>
+            <text class='promotion'>{{item.money}}</text>
+            <text class='promotion'>  X{{item.num}}</text>
+          </view>
+          <text class='promotion'>{{item.isfufei}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 待付款 -->
+  <view hidden="{{currentTab!==1}}">
+
+  </view>
+  <!-- 待发货 -->
+  <view hidden="{{currentTab!==2}}">
+    <view wx:for="{{deliver}}" wx:key="{{index}}" class='flex bg_box'>
+      <image class='size_img' src="{{img+item.img}}" mode='widthFix' />
+      <view class='shop_box'>
+        <text class="shop_text">{{item.name}}</text>
+        <text class='style'>{{item.size}}</text>
+        <view class='money'>
+          <view>
+            <text class='promotion'>{{item.money}}</text>
+            <text class='promotion'>  X{{item.num}}</text>
+          </view>
+          <text class='promotion'>{{item.isfufei}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 待收货 -->
+  <view hidden="{{currentTab!==3}}">
+    <view wx:for="{{take}}" wx:if="{{take[0]}}" wx:key="{{index}}" class='flex bg_box'>
+      <image class='size_img' src="{{img+item.img}}" mode='widthFix' />
+      <view class='shop_box'>
+        <text class="shop_text">{{item.name}}</text>
+        <text class='style'>{{item.size}}</text>
+        <view class='money'>
+          <view>
+            <text class='promotion'>{{item.money}}</text>
+            <text class='promotion'>  X{{item.num}}</text>
+          </view>
+          <text class='promotion'>{{item.isfufei}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+</view>

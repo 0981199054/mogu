@@ -38,6 +38,11 @@ Page({
       url: '../shop/shop'
     });
 
+  },
+  order() {
+    wx.navigateTo({
+      url: '../indent/indent'
+    })
   }
 
 })

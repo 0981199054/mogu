@@ -282,6 +282,7 @@ Page({
       if (this.data.list.some(item => item.selected)) {
         // 创建订单
         let arr = this.data.list.filter(item => item.selected)
+        // console.log(arr)
         arr = arr.map(item => {
           return ({
             name: item.commodity_name,
@@ -291,8 +292,9 @@ Page({
             kuaidi: '未指定',
             isfufei: '已付款',
             danhao: '',
+            num:item.num,
             img: item.commodity_img[0],
-            name: app.data.text
+            buyname: app.data.text
           })
         })
         // console.log(arr)

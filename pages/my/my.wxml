@@ -18,7 +18,7 @@
     <view class='flex my'>
       <view class='my_box'>
         <image src="{{img+'my1.png'}}" class='img' />
-        <text class='my_text'>我的订单</text>
+        <text class='my_text' bindtap='order'>我的订单</text>
       </view>
       <image src="{{img+'my_arr.png'}}" class='img_small' />
     </view>

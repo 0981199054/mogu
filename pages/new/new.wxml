@@ -1,2 +1,7 @@
 <!--pages/new/new.wxml-->
-<text>pages/new/new.wxml</text>
+<view>
+  <text>消息推送</text>
+  <view>
+   
+  </view>
+</view>
