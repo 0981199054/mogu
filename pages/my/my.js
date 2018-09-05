@@ -9,18 +9,20 @@ Page({
   data: {
     img: IP.img,
     name: '',
-    isReg: false
+    isReg: false,
+    myImg:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(app.data.text)
     this.setData({
       isReg: app.data.isReg,
-      name: app.data.text
+      name: app.data.text,
+      myImg:app.data.img
     })
+    console.log(this.data.myImg.length)
   },
   reg() {
     wx.navigateTo({

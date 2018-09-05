@@ -1,14 +1,18 @@
 /* pages/reg/reg.wxss */
 
-.top {
-  margin-top: 30%;
+.box {
+  position: absolute;
+  z-index: 2;
+  top: 300rpx;
+  width: 100%;
 }
 
 .input {
   width: 80%;
   padding: 20rpx 0;
   margin: auto;
-  border-bottom: 1rpx solid #ccc;
+  border-bottom: 1rpx solid #fff;
+  color: #fff;
 }
 
 .btn {
@@ -17,8 +21,25 @@
   background: #ff496c;
   color: #fff;
 }
-.log{
-  font-size:30rpx;
+
+.log {
+  font-size: 30rpx;
   margin-left: 42%;
-  color: #ccc
+  color: #fff;
+}
+
+.bg_box {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.bg_img {
+  width: 100%;
+  height: 100%;
+}
+
+.placeholder {
+  color: #fff;
 }

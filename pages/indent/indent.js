@@ -9,8 +9,8 @@ Page({
   data: {
     img: IP.img,
     list: {},
-    deliver:{},
-    take:{},
+    deliver: {},
+    take: {},
     navbar: ['全部', '待付款', '待发货', '待收货'],
     currentTab: 0,
   },
@@ -52,7 +52,7 @@ Page({
       }
     })
   },
-  // 页面切换
+  // 跳转
   navbarTap(e) {
     this.setData({
       currentTab: e.currentTarget.dataset.idx,

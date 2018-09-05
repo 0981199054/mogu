@@ -70,6 +70,9 @@ Page({
     wx.navigateTo({
       url: `../seek/seek?name=${this.data.list.store_name}&&val=${e.detail.value}&&seek=false`
     })
+    this.setData({
+      inputVal: ""
+    })
   },
   shop_click(e) {
     wx.navigateTo({

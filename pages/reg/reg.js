@@ -43,6 +43,7 @@ Page({
         } else {
           app.data.text = res.data[0].nickname;
           app.data.isReg = true;
+          app.data.img = res.data[0].head_portrait;
           wx.reLaunch({
             url: '../index/index',
           })

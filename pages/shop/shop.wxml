@@ -96,6 +96,6 @@
   </view>
 </view>
 <view wx:else>
-  <button class='nolog_btn btn' bindtap='reg'>登录</button>
+  <button class='nolog_btn btn' bindtap='reg'>请先登录</button>
 </view>
 </view>

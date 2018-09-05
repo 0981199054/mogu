@@ -72,7 +72,7 @@
 }
 
 .bg {
- background-image: linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.4));
+ width: 100%;
 }
 
 .store_name {
@@ -145,4 +145,23 @@
 
 .shop_renative {
   position: relative;
+}
+/* ------------------------底框----------------------------- */
+.bottom_top{
+  padding: 20rpx 0;
+}
+.bottom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50rpx;
+  background: #f6f6f6;
+}
+.bottom_text{
+  font-size: 30rpx;
+  color: #ff496c;
+}
+.title_img_small {
+  width: 40rpx;
+  height: 40rpx;
 }

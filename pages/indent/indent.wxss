@@ -68,6 +68,7 @@
 .page_title {
   justify-content: space-around;
   align-items: center;
+  border-bottom:1rpx solid #ccc 
 }
 
 .item {

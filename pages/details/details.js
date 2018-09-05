@@ -20,7 +20,8 @@ Page({
     num: 1,
     styleIndex: "",
     sizeIndex: "",
-    isReg: false
+    isReg: false,
+    collect:true
   },
   onLoad: function(option) {
     wx.request({
@@ -233,5 +234,10 @@ Page({
     }
 
   },
+  onClick() {
+    this.setData({
+      collect: !this.data.collect
+    })
+  }
 
 })

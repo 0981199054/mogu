@@ -11,10 +11,10 @@
     <image src='../../img/code.png' class="title_img" bindtap='phone' />
   </view>
   <view>
-    <view class='flex bg '>
+    <view class='flex bg' style="background-image: url({{img+'store_title_bg.jpg'}})">
       <image src="{{img+'bp1.jpg'}}" class='store_img' />
       <view class='store_name'>
-        <text class='store_color'>{{list.store_name}}</text>
+        <text >{{list.store_name}}</text>
         <view>
           <image wx:key="{{index}}" wx:for="1234" src="{{img+'pingfen.png'}}" class='store_img_small' />
         </view>
@@ -87,6 +87,13 @@
           </view>
         </view>
       </view>
+    </view>
+  </view>
+  <!-- 底框 -->
+  <view class='bottom bottom_top'>
+    <view class='bottom'>
+      <image src='{{img+"mogu.png"}}' class="title_img_small" />
+      <text class='bottom_text'>已经到底了</text>
     </view>
   </view>
 </view>

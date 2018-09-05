@@ -6,9 +6,9 @@
     <view class='title_input title'>
       <image src='../../img/search.png' class="title_img_small" />
       <input class='title_input_val' placeholder='搜索宝贝、商品' placeholder-class='placeholder' value='{{inputVal}}' bindconfirm='seek'></input>
-      <image src='../../img/camera.png' class="title_img_small"  bindtap='phone'/>
+      <image src='../../img/camera.png' class="title_img_small" bindtap='phone' />
     </view>
-    <image src='../../img/code.png' class="title_img"  />
+    <image src='../../img/code.png' class="title_img" />
   </view>
   <!-- 轮播图 -->
   <swiper class="swiper" indicator-active-color="{{indicatorActiveColor}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -81,6 +81,13 @@
           </view>
         </view>
       </view>
+    </view>
+  </view>
+  <!-- 底框 -->
+  <view class='bottom bottom_top'>
+    <view class='bottom'>
+      <image src='{{img+"mogu.png"}}' class="title_img_small" />
+      <text class='bottom_text'>已经到底了</text>
     </view>
   </view>
 </view>

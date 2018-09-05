@@ -9,7 +9,9 @@ Page({
     list: {},
     img: IP.img,
     seek: "false",
-    val:''
+    val: '', 
+    store_name:'',
+    inputVal:''
   },
 
   /**
@@ -18,7 +20,7 @@ Page({
   onLoad: function(options) {
     this.setData({
       seek: options.seek,
-      val: options.val
+      val: options.val,
     })
     if (this.data.seek == "false") {
       wx.request({
@@ -34,12 +36,11 @@ Page({
         success: res => {
           this.setData({
             list: res.data,
+            store_name: options.name,
           })
-          console.log(this.data.list)
         }
       })
     } else {
-      console.log(options.val)
       wx.request({
         url: IP.ip + 'shop',
         data: {
@@ -69,12 +70,15 @@ Page({
     })
   },
   seek(e) {
+    this.setData({
+      inputVal: ""
+    })
     if (this.data.seek == "false") {
       wx.request({
         url: IP.ip + 'shop',
         data: {
           commodity_name: e.detail.value,
-          store_name: options.name,
+          store_name: this.data.store_name,
         },
         method: "POST",
         header: {
@@ -101,9 +105,14 @@ Page({
           this.setData({
             list: res.data,
           })
-          console.log(this.data.list)
         }
       })
     }
-  }
+  } ,//商品页面跳转
+  shop_click(e) {
+    wx.navigateTo({
+      url: `../details/details?data=${e.currentTarget.dataset.item._id}`
+    })
+    
+  },
 })

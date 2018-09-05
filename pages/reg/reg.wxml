@@ -1,10 +1,14 @@
 <!--pages/reg/reg.wxml-->
 <view>
-  <view class='top'>
-    <input class='input' bindinput="getUser" placeholder='账号' />
-    <input class='input' type='password' bindinput="getPwd"  placeholder='密码' />
+  <view class='box'>
+    <input class='input'  placeholder-class='placeholder' bindinput="getUser" placeholder='账号' />
+    <input class='input' placeholder-class='placeholder' type='password' bindinput="getPwd" placeholder='密码' />
     <button class='btn' bindtap='reg'>登录</button>
     <text class='log' bindtap='golog'>前往注册</text>
   </view>
+  <view class='bg_box'>
+    <image src='{{img+"bg_new.gif"}}' class='bg_img'  mode='widthFix' />
+  </view>
+
 
 </view>

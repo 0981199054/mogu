@@ -1,10 +1,13 @@
 <!--pages/log/log.wxml-->
 <view>
-  <view class='top'>
-    <input class='input' bindinput="getUser" placeholder='账号' />
-    <input class='input' type='password' bindinput="getPwd" placeholder='密码' />
-    <input class='input' bindinput="getNickname" placeholder='昵称' />
-    <input class='input' bindinput="getCity" placeholder='所在城市' />
-    <button class='btn' bindtap='log'>注册</button>
+  <view class='box'>
+    <input class='input' placeholder-class='placeholder' bindinput="getUser" placeholder='账号' />
+    <input class='input' placeholder-class='placeholder' type='password' bindinput="getPwd" placeholder='密码' />
+    <input class='input' placeholder-class='placeholder' bindinput="getNickname" placeholder='昵称' />
+    <input class='input' placeholder-class='placeholder' bindinput="getCity" placeholder='所在城市' />
+    <button class='btn' placeholder-class='placeholder' bindtap='log'>注册</button>
+  </view>
+  <view class='bg_box'>
+    <image src='{{img+"bg_new2.gif"}}' class='bg_img' mode='widthFix' />
   </view>
 </view>

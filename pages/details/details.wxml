@@ -3,7 +3,7 @@
   <!-- 图片详情 -->
   <scroll-view scroll-x class='swiper'>
     <view class='swiper_box' wx:for="{{list.commodity_img}}" wx:key="{{index}}">
-      <image src="{{img+item}}" class="details_img"  />
+      <image src="{{img+item}}" class="details_img" />
     </view>
   </scroll-view>
   <view>
@@ -90,7 +90,7 @@
         <text class='style_text'>规格</text>
         <view class='flex'>
           <view wx:key="{{index}}" wx:for="{{list.specification.style}}">
-            <view id="{{index}}" bindtap='chose_style' data-value='{{item}}' data-index="{{index}}" >
+            <view id="{{index}}" bindtap='chose_style' data-value='{{item}}' data-index="{{index}}">
               <text wx:if="{{index == clickStyle}}" class='style_box style_chose'>{{item}}</text>
               <text wx:else class='style_box '>{{item}}</text>
             </view>
@@ -167,11 +167,17 @@
     <text class='store_flex details_text'>参数商品</text>
     <text class='store_flex details_text'>热卖推荐</text>
   </view>
-  <view >
+  <view>
     <text class='details_img_text'>{{list.details.contentarr}}</text>
     <image wx:key="{{index}}" wx:for="{{list.details.imgarr}}" src="{{img+item}}" class='details_img_box' mode='widthFix' />
   </view>
-
+  <!-- 底框 -->
+  <view class='bottom bottom_top'>
+    <view class='bottom'>
+      <image src='{{img+"mogu.png"}}' class="title_img_small" />
+      <text class='bottom_text'>已经到底了</text>
+    </view>
+  </view>
 
   <!-- 撑高度 -->
   <view class='height'>
@@ -182,15 +188,19 @@
 
   <!-- 购物栏 -->
   <view class='footer'>
-    <view class='footer_box'>
+    <view class='footer_box' bindtap='onClick' wx:if="{{collect}}">
       <image src='{{img+"favor.png"}}' class='img_small' />
       <text class='footer_text'>收藏</text>
+    </view>
+    <view class='footer_box' bindtap='onClick' wx:else>
+      <image src='{{img+"favor_red.png"}}' class='img_small' />
+      <text class='footer_text text_red'>收藏</text>
     </view>
     <view class='footer_box' bindtap='goShop'>
       <image src='{{img+"shop.png"}}' class='img_small' />
       <text class='footer_text'>小店</text>
     </view>
-    <view class='footer_btn chap'  bindtap='showSize'>
+    <view class='footer_btn chap' bindtap='showSize'>
       <text>加入购物车</text>
     </view>
     <view class='footer_btn buy' bindtap='buy'>

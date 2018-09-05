@@ -91,4 +91,31 @@
 .shop_renative {
   position: relative;
 }
+.fixation{
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+.title_height{
+  height: 80rpx;
+}
+/* ------------------------底框----------------------------- */
+.bottom_top{
+  padding: 20rpx 0;
+}
+.bottom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50rpx;
+  background: #f6f6f6;
+}
+.bottom_text{
+  font-size: 30rpx;
+  color: #ff496c;
+}
+.title_img_small {
+  width: 40rpx;
+  height: 40rpx;
+}
 

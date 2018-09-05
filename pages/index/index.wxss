@@ -275,3 +275,19 @@
 .shop_renative {
   position: relative;
 }
+
+/* ------------------------底框----------------------------- */
+.bottom_top{
+  padding: 20rpx 0;
+}
+.bottom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50rpx;
+  background: #f6f6f6;
+}
+.bottom_text{
+  font-size: 30rpx;
+  color: #ff496c;
+}

@@ -2,7 +2,8 @@
 <view>
   <view wx:if='{{isReg}}'>
     <view class="title_flex">
-      <image src='{{img+"bp1.jpg"}}' class='img_big' />
+      <image wx:if="{{myImg.length <5}}" src='{{img+"bp1.jpg"}}' class='img_big' />
+      <image wx:else src='{{img+myImg}}' class='img_big' />
       <view class='title_name'>
         <text>{{name}}</text>
         <view>
@@ -25,7 +26,7 @@
     <view class='bg'></view>
 
     <view class='flex my' bindtap='buyshop'>
-      <view class='my_box' >
+      <view class='my_box'>
         <image src="{{img+'my2.png'}}" class='img' />
         <text class='my_text'>我的购物车</text>
       </view>
@@ -103,7 +104,7 @@
 
   </view>
   <view wx:else>
-    <button class='nolog_btn btn' bindtap='reg'>登录</button>
+    <button class='nolog_btn btn' bindtap='reg'>请先登录</button>
   </view>
 
 
