@@ -260,8 +260,12 @@ Page({
     // 只允许从相机扫码
     wx.scanCode({
       onlyFromCamera: true,
+      scanType: "qrCode",
       success: (res) => {
         console.log(res)
+        wx.navigateTo({
+          url: `../seek/seek?val=${res.result}&&seek=true`
+        })
       }
     })
   }

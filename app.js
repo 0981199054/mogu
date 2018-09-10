@@ -3,7 +3,7 @@ App({
   data: {
     text: "",
     isReg: false,
-    img: ""
+    img: "",
   },
 
 })

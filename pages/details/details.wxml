@@ -121,7 +121,16 @@
         </view>
       </view>
     </view>
-    <view class='flex shop_box '>
+    <view class='flex shop_box ' bindtap='move'>
+      <!-- 小球的实现 -->
+      <view wx:if="{{isReg}}">
+        <view wx:if="{{ball}}" class='good_box good_move'>
+          <view class="good_bos"></view>
+        </view>
+        <view wx:else class='good_box'>
+          <view class="good_bos"></view>
+        </view>
+      </view>
       <text class='shop_char' bindtap='cart'>加入购物车</text>
       <text class='shop_buy' bindtap='buy'>立即购买</text>
     </view>
@@ -178,6 +187,8 @@
       <text class='bottom_text'>已经到底了</text>
     </view>
   </view>
+
+
 
   <!-- 撑高度 -->
   <view class='height'>

@@ -18,7 +18,7 @@ Page({
     styleText: '',
     sizeText: '',
     num: 1,
-    isSelected: false,
+    isSelected: true,
     arr: [],
     money: 0,
     isnum: 0,
@@ -292,7 +292,7 @@ Page({
             kuaidi: '未指定',
             isfufei: '已付款',
             danhao: '',
-            num:item.num,
+            num: item.num,
             img: item.commodity_img[0],
             buyname: app.data.text
           })
@@ -308,8 +308,7 @@ Page({
           header: {
             'content-type': 'application/json' // 默认值
           },
-          success: res => {
-          }
+          success: res => {}
         })
         wx.showLoading({
           title: '正在进行支付',
@@ -377,6 +376,9 @@ Page({
           content: '确认删除',
           success: (res) => {
             if (res.confirm) {
+              this.setData({
+                isSelected: false
+              })
               let arr = this.data.list.filter(item => item.selected)
               arr = arr.map(item => item._id)
               console.log(arr)

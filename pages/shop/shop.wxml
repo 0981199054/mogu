@@ -31,8 +31,8 @@
 
   <view class='height'></view>
   <view class='footer'>
-    <icon wx:if="{{isSelected}}" color="#ff5777" type='success' bindtap='all' size="20" />
-    <icon wx:else type="circle" color="#ff5777" size="20" bindtap='all' />
+    <icon wx:if="{{isSelected}}" color="#ff5777" type='success'  bindtap='all' size="20" />
+    <icon wx:else   type="circle"  color="#ff5777" size="20" bindtap='all' />
     <text class='all' bindtap='all'>全选({{isnum}})</text>
     <text class='all money_color'>￥{{money}}</text>
     <text wx:if="{{!isDel}}" class='clearing' bindtap='dispose'>结算</text>

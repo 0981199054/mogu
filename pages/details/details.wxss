@@ -449,22 +449,63 @@
 .text_red {
   color: #ff5777;
 }
+
 /* ------------------------底框----------------------------- */
-.bottom_top{
+
+.bottom_top {
   padding: 20rpx 0;
 }
-.bottom{
+
+.bottom {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50rpx;
   background: #f6f6f6;
 }
-.bottom_text{
+
+.bottom_text {
   font-size: 30rpx;
   color: #ff496c;
 }
+
 .title_img_small {
   width: 40rpx;
   height: 40rpx;
+}
+
+/* 抛物线动画 */
+
+.good_box {
+  width: 600rpx;
+  position: fixed;
+  z-index: 10;
+  left: 156rpx;
+  transform-origin: right center;
+  opacity: 0;
+
+}
+
+.good_move {
+  animation: circle .4s linear;
+}
+
+@keyframes circle {
+  from {
+    transform: rotate(0deg);
+    opacity: 1
+  }
+
+  to {
+    transform: rotate(90deg);
+    opacity: .4
+  }
+}
+
+.good_bos {
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  border-radius: 50%;
+  background: #ff5777;
 }

@@ -87,7 +87,9 @@ Page({
     wx.scanCode({
       onlyFromCamera: true,
       success: (res) => {
-        console.log(res)
+        wx.navigateTo({
+          url: `../seek/seek?val=${res.result}&&seek=false`
+        })
       }
     })
   }

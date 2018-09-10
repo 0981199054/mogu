@@ -22,7 +22,8 @@ Page({
     sizeIndex: "",
     isReg: false,
     collect: true,
-    buyName: ""
+    buyName: "",
+    ball: false
   },
   onLoad: function(option) {
     wx.request({
@@ -186,7 +187,9 @@ Page({
           mask: true,
           images: {}
         })
-        this.hideSize()
+        setTimeout(()=>{
+          this.hideSize()
+        },500)
         let data = this.data.list;
         delete data._id
         // console.log(this.data.list)
@@ -202,9 +205,7 @@ Page({
             'content-type': 'application/json' // 默认值
           },
           success: res => {
-            console.log(res.data[0])
             if (res.data.length > 0) {
-              console.log("length>0")
               wx.request({
                 url: IP.ip + 'shopUpdata',
                 data: {
@@ -241,7 +242,6 @@ Page({
                   'content-type': 'application/json' // 默认值
                 },
                 success: res => {
-                  console.log('asdasdasd')
                   if (skip == "ture") {
                     wx.switchTab({
                       url: '../shop/shop'
@@ -276,5 +276,15 @@ Page({
     this.setData({
       collect: !this.data.collect
     })
+  },
+  move(e) {
+    this.setData({
+      ball: true
+    })
+    setTimeout(()=>{
+      this.setData({
+        ball: false
+      })
+    }, 400)
   },
 })
